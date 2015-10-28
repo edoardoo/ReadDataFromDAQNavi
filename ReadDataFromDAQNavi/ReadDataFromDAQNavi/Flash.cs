@@ -30,11 +30,10 @@ namespace ReadDataFromDAQNavi {
             } catch { }
         }
 
-        private void closeFlash_Click(object sender, EventArgs e) {
-            //cerra la ventana
+
+
+        private void closeButton_Click(object sender, EventArgs e) {
             this.Close();
         }
-
-      
     }
 }

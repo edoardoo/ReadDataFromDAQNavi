@@ -39,6 +39,7 @@
             this.operationsLink.TabIndex = 0;
             this.operationsLink.TabStop = true;
             this.operationsLink.Text = "Operations";
+            this.operationsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.operationsLink_LinkClicked);
             // 
             // creditsLink
             // 

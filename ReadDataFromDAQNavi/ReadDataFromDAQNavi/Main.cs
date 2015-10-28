@@ -20,11 +20,16 @@ namespace ReadDataFromDAQNavi {
 
         private void creditsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Flash credits = new Flash();
-            credits.Show();
+            credits.ShowDialog();
         }
 
         private void closeButton_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void operationsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Settings settings = new Settings();
+            settings.ShowDialog();
         }
     }
 }

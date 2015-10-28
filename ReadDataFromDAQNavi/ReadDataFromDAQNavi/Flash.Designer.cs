@@ -31,7 +31,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.authorLink = new System.Windows.Forms.LinkLabel();
             this.parametersTextBox = new System.Windows.Forms.TextBox();
-            this.closeFlash = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,15 +107,18 @@
             this.parametersTextBox.Size = new System.Drawing.Size(318, 245);
             this.parametersTextBox.TabIndex = 6;
             // 
-            // closeFlash
+            // closeButton
             // 
-            this.closeFlash.Location = new System.Drawing.Point(428, 436);
-            this.closeFlash.Name = "closeFlash";
-            this.closeFlash.Size = new System.Drawing.Size(75, 23);
-            this.closeFlash.TabIndex = 7;
-            this.closeFlash.Text = "Close";
-            this.closeFlash.UseVisualStyleBackColor = true;
-            this.closeFlash.Click += new System.EventHandler(this.closeFlash_Click);
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(403, 436);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(100, 44);
+            this.closeButton.TabIndex = 7;
+            this.closeButton.Text = "< BACK";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // Flash
             // 
@@ -123,7 +126,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 488);
             this.ControlBox = false;
-            this.Controls.Add(this.closeFlash);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.parametersTextBox);
             this.Controls.Add(this.authorLink);
             this.Controls.Add(this.label4);
@@ -152,7 +155,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel authorLink;
         private System.Windows.Forms.TextBox parametersTextBox;
-        private System.Windows.Forms.Button closeFlash;
+        private System.Windows.Forms.Button closeButton;
     }
 }
 
