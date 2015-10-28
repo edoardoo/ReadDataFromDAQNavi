@@ -12,7 +12,7 @@ namespace ReadDataFromDAQNavi {
         //la estructura basica de la entidad de parametros
         private List<ParamsSection> parameters = new List<ParamsSection>();
         public Parameters() {
-
+            readFile();
         }
         private void readFile() {
             //lee el fichero y compone una lista con una linea cada elemento
@@ -85,7 +85,6 @@ namespace ReadDataFromDAQNavi {
         }
         public string getFormattedParams() {
             //prepara una stringa formattada por el campo de texto
-            readFile();
           
             string parametersText = "";
             string newLine = Environment.NewLine;

@@ -12,6 +12,8 @@ namespace ReadDataFromDAQNavi {
     public partial class Settings : Form {
         public Settings() {
             InitializeComponent();
+            Parameters parameters = new Parameters();
+            //string nombre =
         }
 
         private void closeButton_Click(object sender, EventArgs e) {
@@ -21,5 +23,6 @@ namespace ReadDataFromDAQNavi {
         private void tabPage1_Click(object sender, EventArgs e) {
 
         }
+
     }
 }
