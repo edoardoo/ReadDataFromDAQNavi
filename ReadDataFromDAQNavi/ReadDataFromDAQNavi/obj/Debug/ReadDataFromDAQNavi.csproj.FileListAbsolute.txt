@@ -1,1 +1,3 @@
 C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\bin\Debug\ReadDataFromDAQNavi.exe.config
+C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.exe
+C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.pdb
