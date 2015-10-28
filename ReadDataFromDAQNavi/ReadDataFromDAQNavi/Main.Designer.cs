@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.operationsLink = new System.Windows.Forms.LinkLabel();
             this.creditsLink = new System.Windows.Forms.LinkLabel();
+            this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // operationsLink
@@ -52,15 +53,30 @@
             this.creditsLink.Text = "Credits";
             this.creditsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.creditsLink_LinkClicked);
             // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(810, 438);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(100, 44);
+            this.closeButton.TabIndex = 2;
+            this.closeButton.Text = "CLOSE";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 494);
+            this.ControlBox = false;
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.creditsLink);
             this.Controls.Add(this.operationsLink);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "ReadDataFromDAQNavi";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,6 +86,7 @@
 
         private System.Windows.Forms.LinkLabel operationsLink;
         private System.Windows.Forms.LinkLabel creditsLink;
+        private System.Windows.Forms.Button closeButton;
     }
 }
 

@@ -22,5 +22,9 @@ namespace ReadDataFromDAQNavi {
             Flash credits = new Flash();
             credits.Show();
         }
+
+        private void closeButton_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
