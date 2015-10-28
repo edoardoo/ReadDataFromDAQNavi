@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReadParameters {
+namespace ReadDataFromDAQNavi {
     class Parameters {
         // el path del fichero de configuraion
         private static string CONFIG_FILE = "..\\..\\..\\..\\PARAMS.CFG";

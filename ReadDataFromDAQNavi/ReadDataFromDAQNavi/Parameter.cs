@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReadParameters {
+namespace ReadDataFromDAQNavi {
     //es la estructura de  los parametros
     //ATTENCION falta verifica de tipo
     class Parameter {

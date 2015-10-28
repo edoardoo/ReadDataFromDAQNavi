@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ReadParameters {
+namespace ReadDataFromDAQNavi {
     public partial class Flash : Form {
         public Flash() {
             //mostra la ventana con los parametros
@@ -26,7 +26,7 @@ namespace ReadParameters {
         private void authorLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             //mostra la pagina web del Autor
             try {
-                System.Diagnostics.Process.Start("http://edoardoo.com");
+                System.Diagnostics.Process.Start("https://github.com/edoardoo/ReadDataFromDAQNavi");
             } catch { }
         }
 

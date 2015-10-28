@@ -13,5 +13,14 @@ namespace ReadDataFromDAQNavi {
         public Main() {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void creditsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Flash credits = new Flash();
+            credits.Show();
+        }
     }
 }

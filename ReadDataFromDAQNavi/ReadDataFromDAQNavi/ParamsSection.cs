@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReadParameters {
+namespace ReadDataFromDAQNavi {
     class ParamsSection {
         //es la estructura de la secion
 

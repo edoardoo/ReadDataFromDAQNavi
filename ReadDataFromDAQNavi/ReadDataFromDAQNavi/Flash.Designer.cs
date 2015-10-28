@@ -1,4 +1,4 @@
-﻿namespace ReadParameters {
+﻿namespace ReadDataFromDAQNavi {
     partial class Flash {
         /// <summary>
         /// Required designer variable.
@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Flash));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -33,7 +32,6 @@
             this.authorLink = new System.Windows.Forms.LinkLabel();
             this.parametersTextBox = new System.Windows.Forms.TextBox();
             this.closeFlash = new System.Windows.Forms.Button();
-            this.udCounterCtrl1 = new Automation.BDaq.UdCounterCtrl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +53,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(182, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 25);
+            this.label1.Size = new System.Drawing.Size(175, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Exercise 4 - 2015";
+            this.label1.Text = "Practica 2 - 2015";
             // 
             // label2
             // 
@@ -82,20 +80,20 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(183, 128);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.Size = new System.Drawing.Size(187, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Edoardo Odorico -";
+            this.label4.Text = "Edoardo Odorico - Javier Mena Torres";
             // 
             // authorLink
             // 
             this.authorLink.AutoSize = true;
             this.authorLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.authorLink.Location = new System.Drawing.Point(282, 128);
+            this.authorLink.Location = new System.Drawing.Point(183, 151);
             this.authorLink.Name = "authorLink";
-            this.authorLink.Size = new System.Drawing.Size(75, 13);
+            this.authorLink.Size = new System.Drawing.Size(126, 13);
             this.authorLink.TabIndex = 5;
             this.authorLink.TabStop = true;
-            this.authorLink.Text = "edoardoo.com";
+            this.authorLink.Text = "Link to Github Repository";
             this.authorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.authorLink_LinkClicked);
             // 
             // parametersTextBox
@@ -103,7 +101,7 @@
             this.parametersTextBox.AcceptsReturn = true;
             this.parametersTextBox.AcceptsTab = true;
             this.parametersTextBox.BackColor = System.Drawing.Color.LightGray;
-            this.parametersTextBox.Location = new System.Drawing.Point(186, 167);
+            this.parametersTextBox.Location = new System.Drawing.Point(185, 185);
             this.parametersTextBox.Multiline = true;
             this.parametersTextBox.Name = "parametersTextBox";
             this.parametersTextBox.Size = new System.Drawing.Size(318, 245);
@@ -118,10 +116,6 @@
             this.closeFlash.Text = "Close";
             this.closeFlash.UseVisualStyleBackColor = true;
             this.closeFlash.Click += new System.EventHandler(this.closeFlash_Click);
-            // 
-            // udCounterCtrl1
-            // 
-            this.udCounterCtrl1._StateStream = ((Automation.BDaq.DeviceStateStreamer)(resources.GetObject("udCounterCtrl1._StateStream")));
             // 
             // Flash
             // 
@@ -159,7 +153,6 @@
         private System.Windows.Forms.LinkLabel authorLink;
         private System.Windows.Forms.TextBox parametersTextBox;
         private System.Windows.Forms.Button closeFlash;
-        private Automation.BDaq.UdCounterCtrl udCounterCtrl1;
     }
 }
 
