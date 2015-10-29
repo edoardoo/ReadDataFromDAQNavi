@@ -13,7 +13,8 @@ namespace ReadDataFromDAQNavi {
         public Settings() {
             InitializeComponent();
             Parameters parameters = new Parameters();
-            //string nombre =
+            string nombre = parameters.getSectionByName("Section One").getParameterByName("Nombre").getValue();
+            nameTextBox.Text = nombre;
         }
 
         private void closeButton_Click(object sender, EventArgs e) {
@@ -23,6 +24,7 @@ namespace ReadDataFromDAQNavi {
         private void tabPage1_Click(object sender, EventArgs e) {
 
         }
+
 
     }
 }

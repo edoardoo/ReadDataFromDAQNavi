@@ -101,6 +101,19 @@ namespace ReadDataFromDAQNavi {
             }
             return parametersText;
         }
+        //public paramssection getsection( string sectionname) {
+          //  return parameters;
+        //}
+        public ParamsSection getSectionByName(string sectionName) {
+            foreach( ParamsSection section in parameters) {
+                if(section.getName() == sectionName) {
+                    return section;
+                }
+            }
+            return null;
+
+        }
+       
 
     }
     

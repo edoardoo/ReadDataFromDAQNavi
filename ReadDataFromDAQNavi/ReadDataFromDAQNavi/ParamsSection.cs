@@ -34,7 +34,15 @@ namespace ReadDataFromDAQNavi {
         public List <Parameter> getAllParameters() {
             return this.sectionParameters;
         }
-       
+        public Parameter getParameterByName( string parameterName) {
+            foreach( Parameter param in sectionParameters) {
+                if( param.getKey() == parameterName) {
+                    return param;
+                }
+            }
+            return null;
+        }
+
 
 
     }
