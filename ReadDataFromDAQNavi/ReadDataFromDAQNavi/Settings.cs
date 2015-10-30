@@ -13,8 +13,19 @@ namespace ReadDataFromDAQNavi {
         private Parameters parameters = new Parameters();
         public Settings() {
             InitializeComponent();
-            string nombre = parameters.getSectionByName("Section One").getParameterByName("Nombre").getValue();
-            nameTextBox.Text = nombre;
+            FillGeneralPanel();
+        }
+        private void FillGeneralPanel() {
+            List<SettingUnit> paramsToSet = new List<SettingUnit> {
+                new SettingUnit( "Name", nameTextBox ),
+                new SettingUnit( "Date", dateTextBox  ),
+                new SettingUnit( "Description", descriptionTextBox  )
+
+            };
+            foreach (SettingUnit setting in paramsToSet) {
+
+                setting.getTextBox().Text = parameters.getSectionByName("General").getParameterByName(setting.getId()).getValue();
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e) {
@@ -26,8 +37,8 @@ namespace ReadDataFromDAQNavi {
         }
 
         private void nameTextBox_Leave(object sender, EventArgs e) {
-            parameters.getSectionByName("Section One").getParameterByName("Nombre").setValue(nameTextBox.Text);
-            parameters.saveParameters();
+            //parameters.getSectionByName("General").getParameterByName("Name").setValue(nameTextBox.Text);
+            //parameters.saveParameters();
         }
     }
 }

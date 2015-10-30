@@ -116,7 +116,6 @@ namespace ReadDataFromDAQNavi {
 
         }
         public void saveParameters() {
-            Console.WriteLine("poipoi");
             try {
                 using (StreamReader sr = new StreamReader(CONFIG_FILE)) {
                     string tmpConfigFile = CONFIG_FILE + ".tmp";
@@ -148,9 +147,10 @@ namespace ReadDataFromDAQNavi {
                         newListOfLines.Add(tmpFileLine);
                        
                     }
-                    System.IO.File.WriteAllLines(@tmpConfigFile, newListOfLines.ToArray());
-
                     sr.Close();
+                    System.IO.File.WriteAllLines(@tmpConfigFile, newListOfLines.ToArray());
+                    System.IO.File.Delete(CONFIG_FILE);
+                    System.IO.File.Move(tmpConfigFile, CONFIG_FILE);
 
                 }
             } catch (Exception e) {
