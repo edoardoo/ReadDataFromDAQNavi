@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ReadDataFromDAQNavi {
     public partial class Settings : Form {
+        private Parameters parameters = new Parameters();
         public Settings() {
             InitializeComponent();
-            Parameters parameters = new Parameters();
             string nombre = parameters.getSectionByName("Section One").getParameterByName("Nombre").getValue();
             nameTextBox.Text = nombre;
         }
@@ -25,6 +25,9 @@ namespace ReadDataFromDAQNavi {
 
         }
 
-
+        private void nameTextBox_Leave(object sender, EventArgs e) {
+            parameters.getSectionByName("Section One").getParameterByName("Nombre").setValue(nameTextBox.Text);
+            parameters.saveParameters();
+        }
     }
 }

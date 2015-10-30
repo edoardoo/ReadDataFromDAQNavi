@@ -44,30 +44,34 @@ namespace ReadDataFromDAQNavi {
         private void parseParams(List<string> paramFileLines) {
 
             //lee y enterpreta los parametros de el fichero y popula la estructura basica
-            
-            int counterSection = 0;
-
+           
             for (int i = 0; i < paramFileLines.Count(); i++) {
                 string stringedName = paramFileLines[i].ToString();
                 
-                if (stringedName.Contains("[") || stringedName.Contains("]")) {
+                if ( isSectionName(stringedName) ) {
                     string name = cleanSectionName( stringedName );
                     ParamsSection ps = new ParamsSection(name);
 
                     parameters.Add(ps);
                     
-                } else if(stringedName.Split(';')[0].Contains('=')  ) {
+                } else if( !isCommentedString(stringedName)  ) {
                     string [] paramKeyValue = getKeyValueParameter(stringedName);
                     int sectionIndex = parameters.Count();
                     parameters[sectionIndex-1].addParameter(paramKeyValue[0], paramKeyValue[1]);
                 }
-                
-
-
             }
 
                
             
+        }
+        private bool isSectionName( string line) {
+            if (line.Contains("[") || line.Contains("]")) return true;
+            return false;
+        }
+        private bool isCommentedString( string line) {
+            if (!line.Split(';')[0].Contains('=')) return true;
+
+            return false;
         }
         private string cleanSectionName( string dirtyName ) {
             //limpia los nombres de la sectiones 
@@ -101,9 +105,7 @@ namespace ReadDataFromDAQNavi {
             }
             return parametersText;
         }
-        //public paramssection getsection( string sectionname) {
-          //  return parameters;
-        //}
+       
         public ParamsSection getSectionByName(string sectionName) {
             foreach( ParamsSection section in parameters) {
                 if(section.getName() == sectionName) {
@@ -112,6 +114,51 @@ namespace ReadDataFromDAQNavi {
             }
             return null;
 
+        }
+        public void saveParameters() {
+            Console.WriteLine("poipoi");
+            try {
+                using (StreamReader sr = new StreamReader(CONFIG_FILE)) {
+                    string tmpConfigFile = CONFIG_FILE + ".tmp";
+                    Console.WriteLine(tmpConfigFile);
+                    //Leemos el Stream del fichero
+
+                    int counter = 0;
+                    string line;
+                    List<string> listOfLines = new List<string>();
+                    List<string> newListOfLines = new List<string>();
+                    while ((line = sr.ReadLine()) != null) {
+                        listOfLines.Add(line);
+                        counter++;
+                    }
+                    string sectionName = "";
+
+                    foreach (string fileLine in listOfLines) {
+                        string tmpFileLine = fileLine;
+                        if (isSectionName(fileLine)) {
+                            sectionName = cleanSectionName(fileLine);
+
+                        }else if ( !isCommentedString(fileLine) ) {
+                            string parameterName = getKeyValueParameter(fileLine)[0];
+                            string oldParameter = getKeyValueParameter(fileLine)[1];
+                            string newParameter = getSectionByName(sectionName).getParameterByName(parameterName).getValue();
+                            tmpFileLine = fileLine.Replace(oldParameter, newParameter);
+                        }
+                    
+                        newListOfLines.Add(tmpFileLine);
+                       
+                    }
+                    System.IO.File.WriteAllLines(@tmpConfigFile, newListOfLines.ToArray());
+
+                    sr.Close();
+
+                }
+            } catch (Exception e) {
+                Console.WriteLine("The file could not be write.");
+                Console.WriteLine(e.Message);
+
+            }
+        
         }
        
 

@@ -85,9 +85,9 @@
             // 
             this.nameTextBox.Location = new System.Drawing.Point(110, 17);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(358, 20);
             this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // label3
             // 
