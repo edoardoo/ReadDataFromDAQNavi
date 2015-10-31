@@ -31,5 +31,14 @@ namespace ReadDataFromDAQNavi {
             Settings settings = new Settings();
             settings.ShowDialog();
         }
+
+        private void play_CheckedChanged(object sender, EventArgs e) {
+            if(play.Checked == true) {
+                this.play.Image = global::ReadDataFromDAQNavi.Properties.Resources.stop;
+            } else {
+                this.play.Image = global::ReadDataFromDAQNavi.Properties.Resources.go;
+
+            }
+        }
     }
 }

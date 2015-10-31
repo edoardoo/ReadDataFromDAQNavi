@@ -26,6 +26,7 @@
             this.operationsLink = new System.Windows.Forms.LinkLabel();
             this.creditsLink = new System.Windows.Forms.LinkLabel();
             this.closeButton = new System.Windows.Forms.Button();
+            this.play = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // operationsLink
@@ -57,9 +58,10 @@
             // closeButton
             // 
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(810, 438);
+            this.closeButton.Location = new System.Drawing.Point(810, 431);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(100, 44);
             this.closeButton.TabIndex = 2;
@@ -67,12 +69,28 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // play
+            // 
+            this.play.Appearance = System.Windows.Forms.Appearance.Button;
+            this.play.AutoSize = true;
+            this.play.BackColor = System.Drawing.SystemColors.Menu;
+            this.play.FlatAppearance.BorderSize = 0;
+            this.play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.play.Image = global::ReadDataFromDAQNavi.Properties.Resources.go;
+            this.play.Location = new System.Drawing.Point(717, 426);
+            this.play.Name = "play";
+            this.play.Size = new System.Drawing.Size(56, 56);
+            this.play.TabIndex = 3;
+            this.play.UseVisualStyleBackColor = false;
+            this.play.CheckedChanged += new System.EventHandler(this.play_CheckedChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 494);
             this.ControlBox = false;
+            this.Controls.Add(this.play);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.creditsLink);
             this.Controls.Add(this.operationsLink);
@@ -88,6 +106,7 @@
         private System.Windows.Forms.LinkLabel operationsLink;
         private System.Windows.Forms.LinkLabel creditsLink;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.CheckBox play;
     }
 }
 
