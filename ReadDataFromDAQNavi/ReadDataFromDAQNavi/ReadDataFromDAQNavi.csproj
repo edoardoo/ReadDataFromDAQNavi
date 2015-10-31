@@ -63,6 +63,9 @@
     <Compile Include="ParamsSection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>

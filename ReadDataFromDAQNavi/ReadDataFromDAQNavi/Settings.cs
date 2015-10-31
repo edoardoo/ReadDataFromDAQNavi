@@ -13,9 +13,10 @@ namespace ReadDataFromDAQNavi {
         private Parameters parameters = new Parameters();
         public Settings() {
             InitializeComponent();
-            FillGeneralPanel();
+            fillGeneralPanel();
+            fillControlsPanel();
         }
-        private void FillGeneralPanel() {
+        private void fillGeneralPanel() {
             List<SettingUnit> paramsToSet = new List<SettingUnit> {
                 new SettingUnit( "Name", nameTextBox ),
                 new SettingUnit( "Date", dateTextBox  ),
@@ -25,9 +26,19 @@ namespace ReadDataFromDAQNavi {
             foreach (SettingUnit setting in paramsToSet) {
 
                 setting.getTextBox().Text = parameters.getSectionByName("General").getParameterByName(setting.getId()).getValue();
+                
             }
         }
 
+        private void fillControlsPanel() {
+            ParamsSection section = parameters.getSectionByName("Controls");
+            int counter = 0;
+            foreach (Parameter param in section.getAllParameters()) {
+                
+                SettingControl controller = new SettingControl(param, counter);
+                this.Controls.Add( controller );
+            }
+        }
         private void closeButton_Click(object sender, EventArgs e) {
             this.Close();
         }
@@ -40,5 +51,7 @@ namespace ReadDataFromDAQNavi {
             //parameters.getSectionByName("General").getParameterByName("Name").setValue(nameTextBox.Text);
             //parameters.saveParameters();
         }
+
+      
     }
 }
