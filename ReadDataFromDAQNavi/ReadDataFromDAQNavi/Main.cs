@@ -12,6 +12,7 @@ namespace ReadDataFromDAQNavi {
     public partial class Main : Form {
         public Main() {
             InitializeComponent();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) {

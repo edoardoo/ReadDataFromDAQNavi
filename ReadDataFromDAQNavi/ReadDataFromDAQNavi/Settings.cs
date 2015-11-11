@@ -14,7 +14,8 @@ namespace ReadDataFromDAQNavi {
         public Settings() {
             InitializeComponent();
             fillGeneralPanel();
-            fillControlsPanel();
+           //not yet working: fillControlsPanel();
+            //this.tabControls
         }
         private void fillGeneralPanel() {
             List<SettingUnit> paramsToSet = new List<SettingUnit> {
@@ -31,6 +32,7 @@ namespace ReadDataFromDAQNavi {
         }
 
         private void fillControlsPanel() {
+            
             ParamsSection section = parameters.getSectionByName("Controls");
             int counter = 0;
             foreach (Parameter param in section.getAllParameters()) {
@@ -38,6 +40,8 @@ namespace ReadDataFromDAQNavi {
                 SettingControl controller = new SettingControl(param, counter);
                 this.Controls.Add( controller );
             }
+            
+
         }
         private void closeButton_Click(object sender, EventArgs e) {
             this.Close();
@@ -52,6 +56,8 @@ namespace ReadDataFromDAQNavi {
             //parameters.saveParameters();
         }
 
-      
+        private void label4_Click(object sender, EventArgs e) {
+
+        }
     }
 }
