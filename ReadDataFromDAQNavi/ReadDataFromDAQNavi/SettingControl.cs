@@ -11,15 +11,15 @@ namespace ReadDataFromDAQNavi {
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.TrackBar slider;
         private System.Windows.Forms.TextBox currentValue;
-        public SettingControl( Parameter parameter , int index ) {
-            this.ColumnCount = 3;
+        private Parameter relatedParameter;
 
+        public SettingControl( Parameter parameter ) {
+            this.ColumnCount = 3;
+            this.relatedParameter = parameter;
             int rowHeight = 55;
-            int elementsBaseHeight = rowHeight * index;
             
             this.name = new System.Windows.Forms.Label();
             this.name.Text = parameter.getKey();
-            this.name.Location = new System.Drawing.Point(13, elementsBaseHeight);
             this.name.AutoSize = true;
 
             this.Dock = DockStyle.Fill;
@@ -43,8 +43,8 @@ namespace ReadDataFromDAQNavi {
             
             this.slider.Value = Int32.Parse(parameter.getValue());
             this.slider.Size = new System.Drawing.Size(298, 45);
-//            this.slider.Location = new System.Drawing.Point( this.name.Size.Width+10 , elementsBaseHeight);
-
+            //            this.slider.Location = new System.Drawing.Point( this.name.Size.Width+10 , elementsBaseHeight);
+            this.slider.Scroll += new System.EventHandler(this.updateValue);
             this.currentValue = new System.Windows.Forms.TextBox();
             this.currentValue.Text = parameter.getValue();
 //           this.currentValue.Location = new System.Drawing.Point( this.slider.Location.X+this.slider.Size.Width , elementsBaseHeight);
@@ -75,6 +75,12 @@ namespace ReadDataFromDAQNavi {
 
         }
         public void setCurrentValue() {
+
+        }
+        public void updateValue(object sender, System.EventArgs e) {
+            int value = this.slider.Value;
+            this.currentValue.Text = value.ToString();
+            this.relatedParameter.setValue(value.ToString());
 
         }
 

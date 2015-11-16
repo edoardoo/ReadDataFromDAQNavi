@@ -40,9 +40,8 @@ namespace ReadDataFromDAQNavi {
             tableControls.AutoSize = true;
             foreach (Parameter param in section.getAllParameters()) {
                 
-                SettingControl controller = new SettingControl(param, counter);
+                SettingControl controller = new SettingControl(param);
                 tableControls.Controls.Add(controller);
-                //this.Controls.Add( temp );
             }
 
 

@@ -46,7 +46,7 @@
             this.tabsPanel.Location = new System.Drawing.Point(12, 12);
             this.tabsPanel.Name = "tabsPanel";
             this.tabsPanel.SelectedIndex = 0;
-            this.tabsPanel.Size = new System.Drawing.Size(517, 397);
+            this.tabsPanel.Size = new System.Drawing.Size(549, 520);
             this.tabsPanel.TabIndex = 0;
             // 
             // tabGeneral
@@ -60,7 +60,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(509, 371);
+            this.tabGeneral.Size = new System.Drawing.Size(541, 494);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.tabControls.Location = new System.Drawing.Point(4, 22);
             this.tabControls.Name = "tabControls";
             this.tabControls.Padding = new System.Windows.Forms.Padding(3);
-            this.tabControls.Size = new System.Drawing.Size(509, 371);
+            this.tabControls.Size = new System.Drawing.Size(541, 494);
             this.tabControls.TabIndex = 1;
             this.tabControls.Text = "Controls";
             this.tabControls.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.tableControls.AutoScroll = true;
             this.tableControls.AutoSize = true;
             this.tableControls.ColumnCount = 1;
-            this.tableControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 486F));
             this.tableControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableControls.Location = new System.Drawing.Point(3, 3);
             this.tableControls.Name = "tableControls";
@@ -149,7 +149,7 @@
             this.tableControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableControls.Size = new System.Drawing.Size(503, 365);
+            this.tableControls.Size = new System.Drawing.Size(535, 488);
             this.tableControls.TabIndex = 3;
             // 
             // closeButton
@@ -157,7 +157,7 @@
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(429, 411);
+            this.closeButton.Location = new System.Drawing.Point(461, 538);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(100, 44);
             this.closeButton.TabIndex = 3;
@@ -169,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 458);
+            this.ClientSize = new System.Drawing.Size(573, 594);
             this.ControlBox = false;
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.tabsPanel);
