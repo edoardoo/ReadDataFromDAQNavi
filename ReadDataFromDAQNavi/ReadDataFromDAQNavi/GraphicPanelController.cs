@@ -10,13 +10,16 @@ namespace ReadDataFromDAQNavi {
         private Automation.BDaq.ErrorCode ec;
         private double dbl;
         private Automation.BDaq.InstantAiCtrl instantAiCtrl1;
-        private System.Windows.Forms.TextBox outputAnalog = new System.Windows.Forms.TextBox();
-        private System.Windows.Forms.TextBox outputComputedAnalog = new System.Windows.Forms.TextBox();
+        private System.Windows.Forms.TextBox inputAnalogTextBox = new System.Windows.Forms.TextBox();
+        private System.Windows.Forms.TextBox outputAnalogTextBox = new System.Windows.Forms.TextBox();
 
         private System.Windows.Forms.Timer frequencyTimer = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Panel analogPanel = new System.Windows.Forms.Panel();
         private AnalogMeter inputAnalogMeter = new AnalogMeter();
         private AnalogMeter outputAnalogMeter = new AnalogMeter();
+        private System.Windows.Forms.Label inputAnalogLabel = new System.Windows.Forms.Label();
+        private System.Windows.Forms.Label outputAnalogLabel = new System.Windows.Forms.Label();
+
 
         public GraphicPanelController( Parameters parameters,Automation.BDaq.InstantAiCtrl instantAiCtrl ) {
             this.parameters = parameters;
@@ -28,38 +31,49 @@ namespace ReadDataFromDAQNavi {
             this.analogPanel.SuspendLayout();
             drawAnalogInput();
             drawAnalogOutput();
-            // 
-            // outputAnalog
-            // 
-            this.outputAnalog.Location = new System.Drawing.Point(771, 140);
-            this.outputAnalog.Name = "outputAnalog";
-            this.outputAnalog.Size = new System.Drawing.Size(100, 20);
-            this.outputAnalog.TabIndex = 4;
-           
-            
             //
-            //outputComputedAnalog
+            // input Label
+            //
+            this.inputAnalogLabel.Location = new System.Drawing.Point(652, 5);
+            this.inputAnalogLabel.Name = "inputAnalogLabel";
+            this.inputAnalogLabel.TabIndex = 4;
+            this.inputAnalogLabel.Text = "Input in volts:";
+
+            // 
+            // input TextBox
+            // 
+            this.inputAnalogTextBox.Location = new System.Drawing.Point(775, 5);
+            this.inputAnalogTextBox.Name = "inputAnalogTextBox";
+            this.inputAnalogTextBox.Size = new System.Drawing.Size(100, 20);
+            this.inputAnalogTextBox.TabIndex = 4;
+            this.inputAnalogTextBox.Text = "0";
+
+            //
+            // output Label
+            //
+            this.outputAnalogLabel.Location = new System.Drawing.Point(652, 205);
+            this.outputAnalogLabel.Name = "outputAnalogLabel";
+            this.outputAnalogLabel.TabIndex = 4;
+            this.outputAnalogLabel.Text = "Output in volts:";
+            
+
+            //
+            // output TextBox
             //
 
-            this.outputComputedAnalog.Location = new System.Drawing.Point(771, 296);
-            this.outputComputedAnalog.Name = "outputComputedAnalog";
-            this.outputComputedAnalog.Size = new System.Drawing.Size(100, 20);
-            this.outputComputedAnalog.TabIndex = 4;
-            this.outputComputedAnalog.Text = "out";
-            this.outputComputedAnalog.Visible = true;
-          
+            this.outputAnalogTextBox.Location = new System.Drawing.Point(775, 205);
+            this.outputAnalogTextBox.Name = "outputAnalogTextBox";
+            this.outputAnalogTextBox.Size = new System.Drawing.Size(100, 20);
+            this.outputAnalogTextBox.TabIndex = 4;
+            this.outputAnalogTextBox.Text = "0";
+
             // 
             // analogPanel
             // 
-            this.analogPanel.Controls.Add(this.outputAnalog);
-            this.analogPanel.Controls.Add(this.outputComputedAnalog);
-            int indexInputPanel = this.analogPanel.Controls.GetChildIndex( this.inputAnalogMeter);
-            int indexOutputPanel = this.analogPanel.Controls.GetChildIndex(this.outputAnalogMeter);
-            Console.WriteLine("index: "+indexInputPanel);
-            Console.WriteLine("indexout: " + indexOutputPanel);
-
-            this.analogPanel.Controls.SetChildIndex(this.outputAnalog,  indexInputPanel+1);
-            this.analogPanel.Controls.SetChildIndex(this.outputComputedAnalog, indexOutputPanel+1);
+            this.analogPanel.Controls.Add(this.inputAnalogTextBox);
+            this.analogPanel.Controls.Add(this.outputAnalogTextBox);
+            this.analogPanel.Controls.Add(this.inputAnalogLabel);
+            this.analogPanel.Controls.Add(this.outputAnalogLabel);
 
             this.analogPanel.Location = new System.Drawing.Point(16, 40);
             this.analogPanel.Name = "analogPanel";
@@ -89,8 +103,8 @@ namespace ReadDataFromDAQNavi {
         private void updateInterface() {
             double inputValue = this.dbl;
             double computedValue = computeValue();
-            outputAnalog.Text = this.dbl.ToString();
-            outputComputedAnalog.Text = computedValue.ToString();
+            inputAnalogTextBox.Text = this.dbl.ToString();
+            outputAnalogTextBox.Text = computedValue.ToString();
             inputAnalogMeter.Value = (float) inputValue;
             outputAnalogMeter.Value = (float) computedValue;
         }
@@ -116,7 +130,7 @@ namespace ReadDataFromDAQNavi {
             this.inputAnalogMeter.FrameColor = System.Drawing.Color.Black;
             this.inputAnalogMeter.FramePadding = new System.Windows.Forms.Padding(5);
             this.inputAnalogMeter.InternalPadding = new System.Windows.Forms.Padding(5);
-            this.inputAnalogMeter.Location = new System.Drawing.Point(652, 12);
+            this.inputAnalogMeter.Location = new System.Drawing.Point(652, 30);
             this.inputAnalogMeter.MaxValue = 10F;
             this.inputAnalogMeter.MinValue = -10F;
             this.inputAnalogMeter.Name = "Analog Meter";
@@ -139,7 +153,7 @@ namespace ReadDataFromDAQNavi {
             this.outputAnalogMeter.FrameColor = System.Drawing.Color.Black;
             this.outputAnalogMeter.FramePadding = new System.Windows.Forms.Padding(5);
             this.outputAnalogMeter.InternalPadding = new System.Windows.Forms.Padding(5);
-            this.outputAnalogMeter.Location = new System.Drawing.Point(652, 171);
+            this.outputAnalogMeter.Location = new System.Drawing.Point(652, 231);
             this.outputAnalogMeter.MaxValue = 10F;
             this.outputAnalogMeter.MinValue = -10F;
             this.outputAnalogMeter.Name = "Analog Meter";
