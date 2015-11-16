@@ -13,11 +13,11 @@ namespace ReadDataFromDAQNavi {
         private Boolean isRunning;
        
         private Parameters parameters = new Parameters();
-        private AnalogMeter analogMeter;
+        private GraphicPanelController analogMeter;
 
         public Main() {
             InitializeComponent();
-            analogMeter = new AnalogMeter(parameters, instantAiCtrl1);
+            analogMeter = new GraphicPanelController(parameters, instantAiCtrl1);
             this.SuspendLayout();
             this.Controls.Add(analogMeter.prepareInterface());
             this.ResumeLayout(false);

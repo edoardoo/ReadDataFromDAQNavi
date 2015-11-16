@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalogMeter.cs" />
+    <Compile Include="AnalogMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GraphicPanelController.cs" />
     <Compile Include="Flash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +97,6 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
