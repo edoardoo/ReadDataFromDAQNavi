@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ReadDataFromDAQNavi {
-    class Parameters {
+    public class Parameters {
         // el path del fichero de configuraion
         private static string CONFIG_FILE = "..\\..\\..\\..\\PARAMS.CFG";
         //la estructura basica de la entidad de parametros

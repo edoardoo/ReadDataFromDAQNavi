@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ReadDataFromDAQNavi {
     //es la estructura de  los parametros
     //ATTENCION falta verifica de tipo
-    class Parameter {
+    public class Parameter {
         private string key;
         private string value;
         public Parameter( string key, string value) {

@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="instantAiCtrl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="instantAiCtrl1._StateStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFJBdXRvbWF0aW9uLkJEYXEsIFZlcnNpb249MS4wLjEuMCwgQ3Vs
+        dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj00NjNmNTkyOGQ2MDE4M2EwBQEAAAAjQXV0b21hdGlv
+        bi5CRGFxLkRldmljZVN0YXRlU3RyZWFtZXIJAAAADERldmljZU51bWJlcgtEZXNjcmlwdGlvbgpEZXZp
+        Y2VNb2RlC01vZHVsZUluZGV4CVByb2R1Y3RJRAtjaGFuU2lnVHlwZQtjaGFuVnJnVHlwZQpjamNDaGFu
+        bmVsCGNqY1ZhbHVlAAEAAAAHBwAACAgICAgICAYCAAAAAAAAAAYDAAAAEERlbW9EZXZpY2UsQklEIzAB
+        AAAAAAAAAAAAAAAJBAAAAAkFAAAA/////wAAAAAAADlADwQAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAADwUAAAAIAAAACAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAACw==
+</value>
+  </data>
+  <metadata name="frequencyTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 17</value>
+  </metadata>
 </root>

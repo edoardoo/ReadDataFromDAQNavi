@@ -23,10 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.operationsLink = new System.Windows.Forms.LinkLabel();
             this.creditsLink = new System.Windows.Forms.LinkLabel();
             this.closeButton = new System.Windows.Forms.Button();
             this.play = new System.Windows.Forms.CheckBox();
+            this.instantAiCtrl1 = new Automation.BDaq.InstantAiCtrl(this.components);
+            this.frequencyTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // operationsLink
@@ -84,6 +88,10 @@
             this.play.UseVisualStyleBackColor = false;
             this.play.CheckedChanged += new System.EventHandler(this.play_CheckedChanged);
             // 
+            // instantAiCtrl1
+            // 
+            this.instantAiCtrl1._StateStream = ((Automation.BDaq.DeviceStateStreamer)(resources.GetObject("instantAiCtrl1._StateStream")));
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +115,8 @@
         private System.Windows.Forms.LinkLabel creditsLink;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.CheckBox play;
+        private Automation.BDaq.InstantAiCtrl instantAiCtrl1;
+        private System.Windows.Forms.Timer frequencyTimer;
     }
 }
 

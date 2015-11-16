@@ -10,14 +10,21 @@ using System.Windows.Forms;
 
 namespace ReadDataFromDAQNavi {
     public partial class Main : Form {
+        private Boolean isRunning;
+       
+        private Parameters parameters = new Parameters();
+        private AnalogMeter analogMeter;
+
         public Main() {
             InitializeComponent();
-            
-        }
+            analogMeter = new AnalogMeter(parameters, instantAiCtrl1);
+            this.SuspendLayout();
+            this.Controls.Add(analogMeter.prepareInterface());
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-
         }
+       
 
         private void creditsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Flash credits = new Flash();
@@ -29,17 +36,22 @@ namespace ReadDataFromDAQNavi {
         }
 
         private void operationsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            Settings settings = new Settings();
+            Settings settings = new Settings(parameters);
             settings.ShowDialog();
         }
 
         private void play_CheckedChanged(object sender, EventArgs e) {
             if(play.Checked == true) {
                 this.play.Image = global::ReadDataFromDAQNavi.Properties.Resources.stop;
+                analogMeter.run(true);
+                //this.setIsRunnintState(false);
             } else {
+                analogMeter.run(false);
                 this.play.Image = global::ReadDataFromDAQNavi.Properties.Resources.go;
-
+                //this.setIsRunnintState(true);
             }
         }
+
+
     }
 }

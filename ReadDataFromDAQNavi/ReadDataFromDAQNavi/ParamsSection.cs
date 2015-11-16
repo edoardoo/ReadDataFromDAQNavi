@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ReadDataFromDAQNavi {
-    class ParamsSection {
+    public class ParamsSection {
         //es la estructura de la secion
 
         private string name;

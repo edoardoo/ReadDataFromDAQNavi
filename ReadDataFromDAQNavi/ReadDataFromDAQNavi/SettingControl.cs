@@ -40,22 +40,28 @@ namespace ReadDataFromDAQNavi {
             
             this.slider = new System.Windows.Forms.TrackBar();
 
-            
+            this.slider.Minimum = -10;
+            this.slider.Maximum = 10;
+            if(parameter.getKey() == "tm") {
+                this.slider.Minimum = 1;
+                this.slider.Maximum = 1000;
+               
+            }
+
             this.slider.Value = Int32.Parse(parameter.getValue());
             this.slider.Size = new System.Drawing.Size(298, 45);
-            //            this.slider.Location = new System.Drawing.Point( this.name.Size.Width+10 , elementsBaseHeight);
             this.slider.Scroll += new System.EventHandler(this.updateValue);
             this.currentValue = new System.Windows.Forms.TextBox();
             this.currentValue.Text = parameter.getValue();
-//           this.currentValue.Location = new System.Drawing.Point( this.slider.Location.X+this.slider.Size.Width , elementsBaseHeight);
 
-      //      this.Location = new System.Drawing.Point(7, 7);
             this.Name = "flowLayoutPanel1";
             this.Size = new System.Drawing.Size(496, 361);
             this.TabIndex = 0;
             this.Controls.Add(this.name);
             this.Controls.Add(this.slider);
             this.Controls.Add(this.currentValue);
+            this.currentValue.TextChanged += new System.EventHandler(updateValueFromTextBox);
+
 
 
         }
@@ -81,6 +87,17 @@ namespace ReadDataFromDAQNavi {
             int value = this.slider.Value;
             this.currentValue.Text = value.ToString();
             this.relatedParameter.setValue(value.ToString());
+            
+        }
+        public void updateValueFromTextBox(object sender, System.EventArgs e) {
+            int value = 0;
+            Int32.TryParse(this.currentValue.Text, out value);
+            if(value <= this.slider.Maximum && value >= this.slider.Minimum) {
+                this.slider.Value = value;
+                this.relatedParameter.setValue(value.ToString());
+            } else {
+                this.currentValue.Text = this.relatedParameter.getValue();
+            }
 
         }
 

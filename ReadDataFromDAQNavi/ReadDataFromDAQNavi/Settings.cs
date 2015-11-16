@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace ReadDataFromDAQNavi {
     public partial class Settings : Form {
         private Parameters parameters = new Parameters();
-        public Settings() {
+
+        public Settings( Parameters parameters) {
+            this.parameters = parameters;
             InitializeComponent();
             fillGeneralPanel();
             //not yet working: 
