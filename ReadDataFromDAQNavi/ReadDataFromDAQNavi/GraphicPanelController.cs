@@ -10,27 +10,51 @@ namespace ReadDataFromDAQNavi {
         private Automation.BDaq.ErrorCode ec;
         private double dbl;
         private Automation.BDaq.InstantAiCtrl instantAiCtrl1;
-        private System.Windows.Forms.TextBox inputAnalogTextBox = new System.Windows.Forms.TextBox();
-        private System.Windows.Forms.TextBox outputAnalogTextBox = new System.Windows.Forms.TextBox();
-
         private System.Windows.Forms.Timer frequencyTimer = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Panel analogPanel = new System.Windows.Forms.Panel();
-        private AnalogMeter inputAnalogMeter = new AnalogMeter();
-        private AnalogMeter outputAnalogMeter = new AnalogMeter();
+
         private System.Windows.Forms.Label inputAnalogLabel = new System.Windows.Forms.Label();
+        private System.Windows.Forms.TextBox inputAnalogTextBox = new System.Windows.Forms.TextBox();
+        private AnalogMeter inputAnalogMeter = new AnalogMeter();
+
         private System.Windows.Forms.Label outputAnalogLabel = new System.Windows.Forms.Label();
+        private System.Windows.Forms.TextBox outputAnalogTextBox = new System.Windows.Forms.TextBox();
+        private AnalogMeter outputAnalogMeter = new AnalogMeter();
+
+        private System.Windows.Forms.Label errorLabel = new System.Windows.Forms.Label();
+        private System.Windows.Forms.TextBox errorTextBox = new System.Windows.Forms.TextBox();
+
+        private System.Windows.Forms.Label alarmLabel = new System.Windows.Forms.Label();
+
+        private ScopeControl scope = new ScopeControl();
 
 
         public GraphicPanelController( Parameters parameters,Automation.BDaq.InstantAiCtrl instantAiCtrl ) {
             this.parameters = parameters;
             instantAiCtrl1 = instantAiCtrl;
             defineTimer();
+            prepareScope();
            
         }
+
+        public void prepareScope() {
+            Trace inputTrace = new Trace();
+            Trace outputTrace = new Trace();
+
+            inputTrace.TraceColor = System.Drawing.ColorTranslator.FromHtml("#4aa3df");
+            inputTrace.UnitName = "Input Volts";
+            outputTrace.TraceColor = System.Drawing.ColorTranslator.FromHtml("#e74c3c");
+            outputTrace.UnitName = "Output Volts";
+            scope.Traces.Add(inputTrace);
+            scope.Traces.Add(outputTrace);
+        }
+
         public System.Windows.Forms.Panel prepareInterface() {
             this.analogPanel.SuspendLayout();
             drawAnalogInput();
             drawAnalogOutput();
+            drawScope();
+
             //
             // input Label
             //
@@ -66,15 +90,48 @@ namespace ReadDataFromDAQNavi {
             this.outputAnalogTextBox.Size = new System.Drawing.Size(100, 20);
             this.outputAnalogTextBox.TabIndex = 4;
             this.outputAnalogTextBox.Text = "0";
+            //
+            // Error Label
+            //
+            this.errorLabel.Location = new System.Drawing.Point(0, 0);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.TabIndex = 4;
+            this.errorLabel.Text = "Error:";
 
+
+            //
+            // Error TextBox
+            //
+
+            this.errorTextBox.Location = new System.Drawing.Point(110, 0);
+            this.errorTextBox.Name = "errorTextBox";
+            this.errorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.errorTextBox.TabIndex = 4;
+            this.errorTextBox.Text = "0";
+            this.errorTextBox.ReadOnly = true;
+
+            //
+            // Alarm
+            //
+
+            this.alarmLabel.Location = new System.Drawing.Point(570, 0);
+            this.alarmLabel.Name = "alarmLabel";
+            this.alarmLabel.TabIndex = 4;
+            this.alarmLabel.Text = "ALARM";
+            this.alarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alarmLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.alarmLabel.Visible = false;
             // 
             // analogPanel
             // 
+
             this.analogPanel.Controls.Add(this.inputAnalogTextBox);
             this.analogPanel.Controls.Add(this.outputAnalogTextBox);
             this.analogPanel.Controls.Add(this.inputAnalogLabel);
             this.analogPanel.Controls.Add(this.outputAnalogLabel);
-
+            this.analogPanel.Controls.Add(this.errorLabel);
+            this.analogPanel.Controls.Add(this.errorTextBox);
+            this.analogPanel.Controls.Add(this.alarmLabel);
             this.analogPanel.Location = new System.Drawing.Point(16, 40);
             this.analogPanel.Name = "analogPanel";
             this.analogPanel.Size = new System.Drawing.Size(894, 380);
@@ -98,6 +155,7 @@ namespace ReadDataFromDAQNavi {
         private void frequencyTimer_Tick(object sender, EventArgs e) {
             readAnalogInput();
             updateInterface();
+            
         }
 
         private void updateInterface() {
@@ -107,6 +165,13 @@ namespace ReadDataFromDAQNavi {
             outputAnalogTextBox.Text = computedValue.ToString();
             inputAnalogMeter.Value = (float) inputValue;
             outputAnalogMeter.Value = (float) computedValue;
+            double setPoint = 0;
+            Double.TryParse(parameters.getSectionByName("Controls").getParameterByName("sp").getValue(), out setPoint);
+            errorTextBox.Text = (dbl - setPoint).ToString();
+            scope.BeginAddPoint();
+            scope.AddPoint(0, (float)dbl);
+            scope.AddPoint(1, (float)computedValue);
+            scope.EndAddPoint();
         }
      
         public void readAnalogInput() {
@@ -142,6 +207,7 @@ namespace ReadDataFromDAQNavi {
             this.analogPanel.Controls.Add(inputAnalogMeter);
 
         }
+        
         private void drawAnalogOutput() {
             // 
             // output
@@ -165,30 +231,57 @@ namespace ReadDataFromDAQNavi {
             this.analogPanel.Controls.Add(outputAnalogMeter);
 
         }
+
+        private void drawScope() {
+            // 
+            // scopeControl
+            // 
+            this.scope.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.scope.BackColor = System.Drawing.ColorTranslator.FromHtml("#333333");
+            //this.scope.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.scope.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.scope.ForeColor = System.Drawing.Color.White;
+            this.scope.GridSpacing = 1F;
+            this.scope.Location = new System.Drawing.Point(12, 30);
+            this.scope.Name = "scopeControl";
+            this.scope.Size = new System.Drawing.Size(610, 362);
+            this.scope.TabIndex = 0;
+            this.scope.UnitsY = 30F;
+
+            this.analogPanel.Controls.Add(this.scope);
+        }
         public double computeValue() {
             double originalValue =  this.dbl;
             double outputValue = 0 ;
-            int sup, inf, min, max, K, k;
+            int sup, inf, min, max, k;
 
             Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("sup").getValue(), out sup);
             Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("inf").getValue(), out inf);
-
             Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("min").getValue(), out min);
-
             Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("max").getValue(), out max);
-
-            //Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("K").getValue(), out K);
             Int32.TryParse(parameters.getSectionByName("Controls").getParameterByName("k").getValue(), out k);
 
             if( originalValue > sup && originalValue <= max  ) {
                 outputValue = k * originalValue;
+                alarm("on");
             }else if ( originalValue >= inf && originalValue <= sup) {
                 outputValue = 0;
+                alarm("off");
             }else if ( originalValue >= min && originalValue < inf) {
                 outputValue = k * originalValue;
+                alarm("on");
             }
             updateTimer();
             return outputValue;
+        }
+
+        public void alarm(String state) {
+            this.alarmLabel.Visible = false;
+            if(state == "on") {
+                this.alarmLabel.Visible = true;
+            } 
         }
         public void toggle() {
             if (this.frequencyTimer.Enabled) {
@@ -198,9 +291,16 @@ namespace ReadDataFromDAQNavi {
 
             }
         }
+
         public void run(Boolean state) {
             this.frequencyTimer.Enabled = state;
-           
+            if (state) {
+                this.scope.Start();
+
+            }else {
+                this.scope.Stop();
+            }
+
         }
 
     }

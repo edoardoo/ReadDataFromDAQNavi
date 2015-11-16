@@ -137,7 +137,7 @@
             this.tableControls.AutoScroll = true;
             this.tableControls.AutoSize = true;
             this.tableControls.ColumnCount = 1;
-            this.tableControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 486F));
+            this.tableControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 535F));
             this.tableControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableControls.Location = new System.Drawing.Point(3, 3);
             this.tableControls.Name = "tableControls";
@@ -173,6 +173,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.tabsPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Settings";
             this.Text = "Settings";
             this.tabsPanel.ResumeLayout(false);

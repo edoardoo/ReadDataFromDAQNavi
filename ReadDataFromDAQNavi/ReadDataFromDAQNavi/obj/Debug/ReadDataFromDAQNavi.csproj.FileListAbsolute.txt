@@ -9,3 +9,4 @@ C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNav
 C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.Properties.Resources.resources
 C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.csproj.GenerateResource.Cache
 C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.Settings.resources
+C:\Users\edo\Documents\GitHubVisualStudio\ReadDataFromDAQNavi\ReadDataFromDAQNavi\ReadDataFromDAQNavi\obj\Debug\ReadDataFromDAQNavi.ScopeControl.resources

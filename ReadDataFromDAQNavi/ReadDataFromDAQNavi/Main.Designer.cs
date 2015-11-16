@@ -102,7 +102,11 @@
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.creditsLink);
             this.Controls.Add(this.operationsLink);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ReadDataFromDAQNavi";
             this.ResumeLayout(false);
             this.PerformLayout();
