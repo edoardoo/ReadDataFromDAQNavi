@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ReadDataFromDAQNavi {
     public partial class Settings : Form {
-        private Parameters parameters = new Parameters();
+        private Parameters parameters;
 
         public Settings( Parameters parameters) {
             this.parameters = parameters;
@@ -51,6 +51,7 @@ namespace ReadDataFromDAQNavi {
 
         }
         private void closeButton_Click(object sender, EventArgs e) {
+            parameters.saveParameters();
             this.Close();
         }
 
