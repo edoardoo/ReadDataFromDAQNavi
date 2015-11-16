@@ -10,17 +10,19 @@ using System.Windows.Forms;
 
 namespace ReadDataFromDAQNavi {
     public partial class Settings : Form {
+        //The settings window class
+
         private Parameters parameters;
 
         public Settings( Parameters parameters) {
+            //getting parameters and then populating the settings panel
             this.parameters = parameters;
             InitializeComponent();
             fillGeneralPanel();
-            //not yet working: 
             fillControlsPanel();
-            //this.tabControls
         }
         private void fillGeneralPanel() {
+
             List<SettingUnit> paramsToSet = new List<SettingUnit> {
                 new SettingUnit( "Name", nameTextBox ),
                 new SettingUnit( "Date", dateTextBox  ),
@@ -37,7 +39,6 @@ namespace ReadDataFromDAQNavi {
         private void fillControlsPanel() {
             
             ParamsSection section = parameters.getSectionByName("Controls");
-            int counter = 0;
             tableControls.RowCount = section.getAllParameters().Count();
             tableControls.AutoSize = true;
             foreach (Parameter param in section.getAllParameters()) {
@@ -46,30 +47,12 @@ namespace ReadDataFromDAQNavi {
                 tableControls.Controls.Add(controller);
             }
 
-
-
-
         }
+
         private void closeButton_Click(object sender, EventArgs e) {
             parameters.saveParameters();
             this.Close();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void nameTextBox_Leave(object sender, EventArgs e) {
-            //parameters.getSectionByName("General").getParameterByName("Name").setValue(nameTextBox.Text);
-            //parameters.saveParameters();
-        }
-
-        private void label4_Click(object sender, EventArgs e) {
-
-        }
-
-        private void tabControls_Click(object sender, EventArgs e) {
-
-        }
     }
 }

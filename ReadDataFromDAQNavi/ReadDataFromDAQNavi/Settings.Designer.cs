@@ -64,7 +64,6 @@
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
-            this.tabGeneral.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // descriptionTextBox
             // 
@@ -130,7 +129,6 @@
             this.tabControls.TabIndex = 1;
             this.tabControls.Text = "Controls";
             this.tabControls.UseVisualStyleBackColor = true;
-            this.tabControls.Click += new System.EventHandler(this.tabControls_Click);
             // 
             // tableControls
             // 

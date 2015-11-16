@@ -116,6 +116,7 @@ namespace ReadDataFromDAQNavi {
 
         }
         public void saveParameters() {
+            //Guarda los parametros en un nuevo fichero
             try {
                 using (StreamReader sr = new StreamReader(CONFIG_FILE)) {
                     string tmpConfigFile = CONFIG_FILE + ".tmp";
